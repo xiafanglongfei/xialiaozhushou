@@ -1,0 +1,105 @@
+<!--pages/calculator/calculator.wxml-->
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+  <view class="page__hd">
+    <view class="page__title">下料助手</view>
+    <view class="page__desc">
+      一款供铝合金窗户加工师傅下料时用的型材尺寸计算器，简单方便实用。
+    </view>
+  </view>
+
+  <view class="page__bd">
+    <form bindsubmit="formSubmit">
+      <view class="weui-cells__title">原始尺寸（单位：米）</view>
+
+      <view class="weui-cells weui-cells_after-title">
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">高</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type='digit' placeholder="请输入原始尺寸——高" name="raw_height" />
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">宽</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type='digit' placeholder="请输入原始尺寸——宽" name="raw_width" />
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">是否有翻窗</view>
+          <view class="weui-cell__ft">
+            <switch checked="{{options.hasPF}}" bindchange='switchChange' />
+          </view>
+        </view>
+
+        <block wx:if="{{options.hasPF}}">
+          <view class='weui-cell weui-cell_input'>
+            <view class="weui-cell__hd">
+              <!-- <view class="weui-label">翻窗数</view> -->
+              <view class="weui-label">吊线数</view>
+            </view>
+            <view class="weui-cell__bd">
+              <radio-group bindchange="radioPFCChange" class='weui-input' style='display: flex; flex-direction: row; justify-content: space-around'>
+                <radio wx:for="{{radioPFCItems}}" value="{{item.value}}" checked="{{item.checked}}" wx:key="">{{item.name}}</radio>
+              </radio-group>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">扇子高度</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" type='digit' placeholder="请输入扇子高度" name="shanzi_height" value="{{options.shanzi_height}}" />
+            </view>
+          </view>
+        </block>
+        <view class='weui-cell weui-cell_input'>
+          <view class="weui-cell__hd">
+            <view class="weui-label">扇子数</view>
+          </view>
+
+          <view class="weui-cell__bd">
+            <radio-group bindchange="radioWCChange" class='weui-input' style='display: flex; flex-direction: row; justify-content: space-evenly'>
+              <radio value="2" checked>2</radio>
+              <radio value="4">4</radio>
+            </radio-group>
+          </view>
+        </view>
+
+      </view>
+
+      <view class="weui-cells__tips">原始尺寸的高即为边封的长度，宽即为上下滑加上两个边封厚度</view>
+
+      <view class='weui-btn-area'>
+        <button class='weui-btn' type='primary' formType="submit">计算</button>
+      </view>
+
+    </form>
+    <!-- <view class='weui-btn-area'>
+      <button class="weui-btn" type="default" bindtap="toSeriesList">
+        设置型材系列
+      </button>
+    </view> -->
+
+  </view>
+
+  <!-- <view class="weui-footer">
+    <view class="weui-footer__links">
+      <navigator url="" class="weui-footer__link">WeUI首页</navigator>
+    </view>
+    <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
+  </view> -->
+
+  <import src="/pages/footer/footer.wxml" />
+  <template is="footer" data="{{text: 'forbar'}}" />
+
+  <!-- <include src="/pages/footer/footer.wxml" /> -->
+</view>

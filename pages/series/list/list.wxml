@@ -1,0 +1,64 @@
+<!--pages/series/list/list.wxml-->
+
+<view class="page">
+
+  <view class="page__hd">
+    <view class="page__title">型材系列管理</view>
+    <view class="page__desc">在此页面添加、修改、删除常用的铝型材尺寸系列</view>
+  </view>
+
+  <view class="page__bd">
+
+    <view class="weui-form-preview" wx:for="{{series}}">
+
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">{{item.name}}</view>
+          <view class="weui-form-preview__value_in-hd">¥2400.00</view>
+        </view>
+      </view>
+
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">扁管</view>
+          <view class="weui-form-preview__value">{{item.bianguan}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">边封</view>
+          <view class="weui-form-preview__value">{{item.bianfeng}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">上下滑</view>
+          <view class="weui-form-preview__value">{{item.shangxiahua}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">吊线</view>
+          <view class="weui-form-preview__value">{{item.diaoxian}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">上下方</view>
+          <view class="weui-form-preview__value">{{item.shangxiafang}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">钩光极</view>
+          <view class="weui-form-preview__value">{{item.gouguangji}}</view>
+        </view>
+      </view>
+
+      <view class="weui-form-preview__ft">
+        <navigator wx:if="{{selected === index}}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">正在使用此尺寸</navigator>
+        <navigator wx:else class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap='select'>使用此尺寸</navigator>
+
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" url='/pages/series/edit/edit'>修改</navigator>
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">删除</navigator>
+      </view>
+
+    </view>
+
+    <view class="weui-btn-area">
+      <button type='primary'>添加型材系列</button>
+      
+    </view>
+
+  </view>
+</view>

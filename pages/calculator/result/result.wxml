@@ -1,0 +1,131 @@
+<!--pages/calculator/result/result.wxml-->
+
+<!-- 必须使用相对路径 -->
+<wxs module="filters" src="../../../utils/filters.wxs"></wxs>
+
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+  <view class="page__hd">
+    <view class="page__title">计算结果</view>
+    <view class="page__desc">
+      当前计算的是
+      <text wx:if="{{options.hasPF}}">有{{options.PFC - 1}}根吊线的</text>
+      <text wx:else>无</text> 翻窗、
+      <text>{{options.WC}}扇</text> 高度为
+      <text>{{options.shanzi_height}}米</text> 扇子的情况。
+    </view>
+  </view>
+
+  <view class="page__bd">
+
+    <view class="weui-cells__title">计算结果（单位：米）</view>
+
+    <view class="weui-cells weui-cells_after-title">
+
+      <block wx:if="{{options.hasPF}}">
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">翻窗玻璃——高</view>
+          </view>
+          <view class="weui-cell__bd">
+            <text class="weui-input">{{filters.toFix(results.fanchuangboli_gao)}}</text>
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">翻窗玻璃1——宽</view>
+          </view>
+          <view class="weui-cell__bd">
+            <text class="weui-input">{{filters.toFix(results.fanchuangboli_kuan1)}}</text>
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">翻窗玻璃2——宽</view>
+          </view>
+          <view class="weui-cell__bd">
+            <text class="weui-input">{{filters.toFix(results.fanchuangboli_kuan2)}}</text>
+          </view>
+        </view>
+      </block>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">扇子玻璃——高</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text class="weui-input">{{filters.toFix(results.shanziboli_gao)}}</text>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">扇子玻璃——宽</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text class="weui-input">{{filters.toFix(results.shanziboli_kuan)}}</text>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">边封</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text class="weui-input">{{filters.toFix(results.bianfeng)}}</text>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">扁管</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text class="weui-input">{{filters.toFix(results.bianguan)}}</text>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">上下滑</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text class="weui-input">{{filters.toFix(results.shangxiahua)}}</text>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">钩光极</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text class="weui-input">{{filters.toFix(results.gouguangji)}}</text>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">上下方</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text class="weui-input">{{filters.toFix(results.shangxiafang)}}</text>
+        </view>
+      </view>
+
+    </view>
+
+    <!-- <view class="weui-cells__tips">原始尺寸的高即为边封的长度，宽即为上下滑加上两个边封厚度</view> -->
+
+    <!-- <view class='weui-btn-area'>
+        <button class='weui-btn' type='primary' bindtap='backToCalculator'>返回</button>
+      </view> -->
+
+
+  </view>
+
+  <import src="/pages/footer/footer.wxml" />
+  <template is="footer" data="{{text: 'forbar'}}" />
+</view>

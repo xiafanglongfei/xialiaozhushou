@@ -1,0 +1,15 @@
+/* pages/calculator/result/result.wxss */
+
+.weui-cell__hd {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.weui-label {
+  width: auto
+}
+
+.weui-cell__bd {
+  text-align: center
+}

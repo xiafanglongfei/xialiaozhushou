@@ -1,0 +1,4 @@
+/* pages/series/list/list.wxss */
+.weui-form-preview{
+    margin-bottom: 25px;
+}
