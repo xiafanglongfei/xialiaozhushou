@@ -1,6 +1,6 @@
 var filters = {
   toFix: function (value) {
-    return value.toFixed(3)
+    return value.toFixed(4)
   }
 }
 module.exports = {
