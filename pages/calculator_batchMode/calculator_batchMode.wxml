@@ -1,16 +1,42 @@
-<!--pages/calculator/calculator.wxml-->
+<!--pages/calculator_batchMode/calculator_batchMode.wxml-->
+
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
 
   <view class="page__hd">
-    <view class="page__title">下料助手</view>
+    <view class="page__title">下料助手（批量模式）</view>
     <view class="page__desc">
-      一款供铝合金窗户加工师傅下料时用的型材尺寸计算器，简单方便实用。
+      请分别输入每个窗户的原始尺寸、个数等参数。
     </view>
   </view>
 
   <view class="page__bd">
+    <view class="" wx:if="{{items.length === 0}}" style='text-align: center'>
+      当前还未输入任何尺寸
+    </view>
+    <view class="" wx:else>
+
+      <!-- <view class="" wx:for="{{items}}">
+        <view>第{{index + 1}}个尺寸为高{{item.raw_height}}宽{{item.raw_width}}是否有翻窗{{item.hasPF}}翻窗数{{item.PFC}}扇子高度{{item.shanzi_height}}扇子数{{item.WC}}同尺寸窗户数{{item.subtotal}}</view>
+      </view> -->
+
+      <view class="weui-cells__title">已输入{{s}}个窗户（高*宽*个数，单位：米）</view>
+      <view class="weui-cells weui-cells_after-title">
+
+        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{items}}">
+          <view class="weui-cell__bd" wx:if="{{item.subtotal == 1}}">{{item.raw_height}}*{{item.raw_width}}</view>
+          <view class="weui-cell__bd" wx:else>{{item.raw_height}}*{{item.raw_width}}*{{item.subtotal}}</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">查看</view>
+        </navigator>
+
+      </view>
+
+    </view>
+  </view>
+
+
+  <view class="page__bd">
     <form bindsubmit="formSubmit">
-      <view class="weui-cells__title">原始尺寸（单位：米）</view>
+      <view class="weui-cells__title">新增窗户（单位：米）</view>
 
       <view class="weui-cells weui-cells_after-title">
 
@@ -35,7 +61,7 @@
         <view class="weui-cell weui-cell_switch">
           <view class="weui-cell__bd">是否有翻窗</view>
           <view class="weui-cell__ft">
-            <switch checked="{{options.hasPF}}" bindchange='switchChange' />
+            <switch name="hasPF" checked="{{options.hasPF}}" bindchange='switchChange' />
           </view>
         </view>
 
@@ -46,7 +72,7 @@
               <view class="weui-label">吊线数</view>
             </view>
             <view class="weui-cell__bd">
-              <radio-group bindchange="radioPFCChange" class='weui-input' style='display: flex; flex-direction: row; justify-content: space-around'>
+              <radio-group name="PFC" bindchange="radioPFCChange" class='weui-input' style='display: flex; flex-direction: row; justify-content: space-around'>
                 <radio wx:for="{{radioPFCItems}}" value="{{item.value}}" checked="{{item.checked}}" wx:key="">{{item.name}}</radio>
               </radio-group>
             </view>
@@ -61,14 +87,30 @@
             </view>
           </view>
         </block>
+
         <view class='weui-cell weui-cell_input'>
           <view class="weui-cell__hd">
             <view class="weui-label">扇子数</view>
           </view>
 
           <view class="weui-cell__bd">
-            <radio-group bindchange="radioWCChange" class='weui-input' style='display: flex; flex-direction: row; justify-content: space-evenly'>
+            <radio-group name="WC" bindchange="radioWCChange" class='weui-input' style='display: flex; flex-direction: row; justify-content: space-evenly'>
               <radio value="2" checked>2</radio>
+              <radio value="4">4</radio>
+            </radio-group>
+          </view>
+        </view>
+
+        <view class='weui-cell weui-cell_input'>
+          <view class="weui-cell__hd">
+            <view class="weui-label">同尺寸窗户数</view>
+          </view>
+
+          <view class="weui-cell__bd">
+            <radio-group name="subtotal" bindchange="radioSubtotalChange" class='weui-input' style='display: flex; flex-direction: row; justify-content: space-evenly'>
+              <radio value="1" checked>1</radio>
+              <radio value="2">2</radio>
+              <radio value="3">3</radio>
               <radio value="4">4</radio>
             </radio-group>
           </view>
@@ -79,20 +121,21 @@
       <view class="weui-cells__tips">原始尺寸的高即为边封的长度，宽即为上下滑加上两个边封厚度</view>
 
       <view class='weui-btn-area'>
+        <button class="weui-btn" type="default" formType="submit" bindtap="oneMore">
+          保存并新增一项
+        </button>
+      </view>
+
+      <!-- <view class='weui-btn-area'>
         <button class='weui-btn' type='primary' formType="submit">计算</button>
+      </view> -->
+
+      <view class='weui-btn-area'>
+        <button class='weui-btn' type='primary' bindtap="showResult">计算</button>
       </view>
 
     </form>
-    <view class='weui-btn-area'>
-      <button class="weui-btn" type="default" bindtap="toBatchMode">
-        批量模式
-      </button>
-    </view>
-    <!-- <view class='weui-btn-area'>
-      <button class="weui-btn" type="default" bindtap="toSeriesList">
-        设置型材系列
-      </button>
-    </view> -->
+
 
   </view>
 

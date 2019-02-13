@@ -147,6 +147,12 @@ Page({
 
   },
 
+  toBatchMode: function() {
+    wx.navigateTo({
+      url: '/pages/calculator_batchMode/calculator_batchMode',
+    })
+  },
+
   toSeriesList: function() {
     wx.navigateTo({
       url: '/pages/series/list/list',
