@@ -14,13 +14,13 @@ Page({
       // 原始尺寸——宽
       raw_width: undefined,
       // 扇子高度
-      shanzi_height: undefined,
+      shanzi_height: 1.175,
       // 是否有翻窗
-      hasPF: undefined,
+      hasPF: true,
       // 翻窗数
-      PFC: undefined,
+      PFC: 2,
       // 扇子数
-      WC: undefined,
+      WC: 2,
     },
 
     // fanchuangboli_gao: undefined,
@@ -37,38 +37,20 @@ Page({
     // gouguangji: undefined,
     // shangxiafang: undefined,
 
-    radioPFCItems: [{
-        // name: '2',
-        name: '1',
-        value: 2,
-        checked: true
-      },
-      {
-        // name: '3',
-        name: '2',
-        value: 3,
-      },
-      {
-        // name: '4',
-        name: '3',
-        value: 4,
-      }
-    ],
-
   },
 
   onLoad: function(options) {
-    var options = new Object()
-    // console.log('app.globalData.series[0].hasPF值为', app.globalData.series[0].hasPF)
-    options.shanzi_height = app.globalData.series[0].shanzi_height
-    options.hasPF = app.globalData.series[0].hasPF
-    // console.log('hasPF值为', options.hasPF)
-    options.PFC = app.globalData.series[0].PFC
-    options.WC = app.globalData.series[0].WC
+    // var options = new Object()
+    // // console.log('app.globalData.series[0].hasPF值为', app.globalData.series[0].hasPF)
+    // options.shanzi_height = app.globalData.series[0].shanzi_height
+    // options.hasPF = app.globalData.series[0].hasPF
+    // // console.log('hasPF值为', options.hasPF)
+    // options.PFC = app.globalData.series[0].PFC
+    // options.WC = app.globalData.series[0].WC
 
-    this.setData({
-      options: options
-    })
+    // this.setData({
+    //   options: options
+    // })
   },
 
   formSubmit: function(e) {
@@ -125,19 +107,6 @@ Page({
     app.globalData.results = results
     options.shanzi_height = results.gouguangji
     app.globalData.options = options
-    // app.globalData.results.fanchuangboli_gao = fanchuangboli_gao
-    // app.globalData.results.fanchuangboli_kuan1 = fanchuangboli_kuan1
-    // app.globalData.results.fanchuangboli_kuan2 = fanchuangboli_kuan2
-
-    // app.globalData.results.shanziboli_gao = shanziboli_gao
-    // app.globalData.results.shanziboli_kuan = shanziboli_kuan
-
-    // app.globalData.results.bianfeng = bianfeng
-    // app.globalData.results.bianguan = bianguan
-    // app.globalData.results.shangxiahua = shangxiahua
-
-    // app.globalData.results.gouguangji = gouguangji
-    // app.globalData.results.shangxiafang = shangxiafang
  
     console.log(app.globalData)
 

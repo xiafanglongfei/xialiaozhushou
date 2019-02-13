@@ -47,7 +47,9 @@
             </view>
             <view class="weui-cell__bd">
               <radio-group bindchange="radioPFCChange" class='weui-input' style='display: flex; flex-direction: row; justify-content: space-around'>
-                <radio wx:for="{{radioPFCItems}}" value="{{item.value}}" checked="{{item.checked}}" wx:key="">{{item.name}}</radio>
+                <radio value="2" checked='true'>1</radio>
+                <radio value="3">2</radio>
+                <radio value="4">3</radio>
               </radio-group>
             </view>
           </view>

@@ -1,6 +1,7 @@
 // pages/calculator_batchMode/calculator_batchMode.js
 
 const app = getApp()
+const cal = require('../../utils/calculate.js')
 
 Page({
 
@@ -8,50 +9,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    s: 0,
-
     items: [],
 
     // 各参数默认值
-    options: {},
+    options: {
+      shanzi_height: 1.175,
+      hasPF: true,
+      PFC: 2,
+      WC: 2,
+    },
+  },
+
+  onLoad: function(options) {
     
-    radioPFCItems: [{
-      // name: '2',
-      name: '1',
-      value: 2,
-      checked: true
-    },
-    {
-      // name: '3',
-      name: '2',
-      value: 3,
-    },
-    {
-      // name: '4',
-      name: '3',
-      value: 4,
-    }
-    ],
-
   },
 
-  onLoad: function (options) {
-    var options = new Object()
-    // console.log('app.globalData.series[0].hasPF值为', app.globalData.series[0].hasPF)
-    options.shanzi_height = app.globalData.series[0].shanzi_height
-    options.hasPF = app.globalData.series[0].hasPF
-    // console.log('hasPF值为', options.hasPF)
-    options.PFC = app.globalData.series[0].PFC
-    options.WC = app.globalData.series[0].WC
-
-    this.setData({
-      options: options
-    })
-  },
-
-  formSubmit: function (e) {
+  formSubmit: function(e) {
     console.log('form 发生 submit 事件，携带值为', e.detail.value)
-    
+
     var temp = new Object()
     temp.raw_height = parseFloat(e.detail.value.raw_height)
     temp.raw_width = parseFloat(e.detail.value.raw_width)
@@ -71,10 +46,10 @@ Page({
       items: items,
       s: s,
     })
-    
+
   },
 
-  switchChange: function (e) {
+  switchChange: function(e) {
     console.log('switch 发生 change 事件，携带值为', e.detail.value)
     this.setData({
       ["options.hasPF"]: e.detail.value
@@ -82,7 +57,7 @@ Page({
     app.globalData.options.hasPF = e.detail.value
   },
 
-  radioPFCChange: function (e) {
+  radioPFCChange: function(e) {
     console.log('radioPFC 发生 change 事件，携带值为', e.detail.value)
     this.setData({
       ["options.PFC"]: e.detail.value
@@ -90,7 +65,7 @@ Page({
     app.globalData.options.PFC = e.detail.value
   },
 
-  radioWCChange: function (e) {
+  radioWCChange: function(e) {
     console.log('radioWC 发生 change 事件，携带值为', e.detail.value)
     this.setData({
       ["options.WC"]: e.detail.value
@@ -98,12 +73,33 @@ Page({
     app.globalData.options.WC = e.detail.value
   },
 
-  radioSubtotalChange: function (e) {
+  radioSubtotalChange: function(e) {
     console.log('radioSubtotal 发生 change 事件，携带值为', e.detail.value)
 
+  },
+
+  oneMore: function() {
+
+  },
+
+  showResult: function(e) {
+    app.globalData.items = this.data.items
+    // console.log(app.globalData)
+    var result = new Array()
+    var i = 0
+
+    for (i = 0; i < this.data.items.length; i++) {
+      result.push(cal.cal(this.data.items[i]))
+    }
+
+    // console.log("result值为", result)
+
+    app.globalData.result = this.data.result
+
+    wx.navigateTo({
+      url: '/pages/calculator_batchMode/result/result',
+    })
   }
-
-
 })
 
 // PF: 翻窗(pivot frame)
