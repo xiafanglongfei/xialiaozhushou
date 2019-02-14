@@ -31,6 +31,7 @@ Page({
     // shanziboli_kuan: undefined,
 
     // bianfeng: undefined,
+    // diaoxian: undefined,
     // bianguan: undefined,
     // shangxiahua: undefined,
 
@@ -95,9 +96,11 @@ Page({
     // 扇子玻璃宽度为扇子宽度（上下方长度）减去钩极和光极的厚度（默认为0.065米）
     results.shanziboli_kuan = results.shangxiafang - 0.065
 
-    // 翻窗玻璃高度为原始尺寸高度减去扇子部分高度和扁管厚度（一个，默认为0.025米），再减去预留空隙0.002米
+    // 吊线长度为原始尺寸高度减去扇子部分高度和扁管厚度（一个，默认为0.025米）
+    results.diaoxian = options.raw_height - (results.gouguangji + 0.065) - 0.025
+    // 翻窗玻璃高度为吊线长度减去预留空隙0.002米
     // 扇子部分分为扇子高度与上下方厚度（上下方总厚度默认为0.065米）
-    results.fanchuangboli_gao = options.raw_height - (results.gouguangji + 0.065) - 0.025 - 0.002
+    results.fanchuangboli_gao = results.diaoxian - 0.002
     // 翻窗玻璃平均宽度等于扁管长度减去吊线总厚度（吊线实际就是扁管，扁管厚度默认为0.025米），然后除以翻窗数PFC
     var fanchuangboli_kuan = (results.bianguan - 0.025 * (options.PFC - 1)) / options.PFC
     // 翻窗玻璃实际宽度为平均宽度加3毫米或者减2毫米

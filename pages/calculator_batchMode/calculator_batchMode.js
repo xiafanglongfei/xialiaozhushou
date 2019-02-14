@@ -21,23 +21,23 @@ Page({
   },
 
   onLoad: function(options) {
-    
+
   },
 
   formSubmit: function(e) {
     console.log('form 发生 submit 事件，携带值为', e.detail.value)
 
-    var temp = new Object()
-    temp.raw_height = parseFloat(e.detail.value.raw_height)
-    temp.raw_width = parseFloat(e.detail.value.raw_width)
-    temp.hasPF = e.detail.value.hasPF
-    temp.PFC = e.detail.value.PFC
-    temp.shanzi_height = e.detail.value.shanzi_height
-    temp.WC = e.detail.value.WC
-    temp.subtotal = e.detail.value.subtotal
+    var item = new Object()
+    item.raw_height = parseFloat(e.detail.value.raw_height)
+    item.raw_width = parseFloat(e.detail.value.raw_width)
+    item.hasPF = e.detail.value.hasPF
+    item.PFC = e.detail.value.PFC
+    item.shanzi_height = e.detail.value.shanzi_height
+    item.WC = e.detail.value.WC
+    item.subtotal = e.detail.value.subtotal
 
     var items = this.data.items
-    items.push(temp)
+    items.push(item)
 
     var s = this.data.s
     s++
@@ -85,16 +85,17 @@ Page({
   showResult: function(e) {
     app.globalData.items = this.data.items
     // console.log(app.globalData)
-    var result = new Array()
+    var results = new Array()
     var i = 0
 
     for (i = 0; i < this.data.items.length; i++) {
-      result.push(cal.cal(this.data.items[i]))
+      results.push(cal.cal(this.data.items[i]))
     }
 
     // console.log("result值为", result)
 
-    app.globalData.result = this.data.result
+    // app.globalData.results = this.data.results
+    app.globalData.results = results
 
     wx.navigateTo({
       url: '/pages/calculator_batchMode/result/result',

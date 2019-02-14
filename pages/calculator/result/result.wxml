@@ -50,6 +50,16 @@
             <text class="weui-input">{{filters.toFix(results.fanchuangboli_kuan2)}}</text>
           </view>
         </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">吊线</view>
+          </view>
+          <view class="weui-cell__bd">
+            <text class="weui-input">{{filters.toFix(results.diaoxian)}}</text>
+          </view>
+        </view>
+
       </block>
 
       <view class="weui-cell weui-cell_input">

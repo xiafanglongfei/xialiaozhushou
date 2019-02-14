@@ -46,6 +46,7 @@ App({
 
       // bianfeng: undefined,
       // bianguan: undefined,
+      // diaoxian: undefined,
       // shangxiahua: undefined,
 
       // gouguangji: undefined,
