@@ -35,6 +35,18 @@ var calculate = function(a) {
   result.fanchuangboli_kuan1 = fanchuangboli_kuan + 0.003
   result.fanchuangboli_kuan2 = fanchuangboli_kuan - 0.002
 
+  result.bianfeng = result.bianfeng.toFixed(3)
+  result.shangxiahua = result.shangxiahua.toFixed(3)
+  result.bianguan = result.bianguan.toFixed(3)
+  result.gouguangji = result.gouguangji.toFixed(3)
+  result.shangxiafang = result.shangxiafang.toFixed(3)
+  result.shanziboli_gao = result.shanziboli_gao.toFixed(3)
+  result.shanziboli_kuan = result.shanziboli_kuan.toFixed(3)
+  result.diaoxian = result.diaoxian.toFixed(3)
+  result.fanchuangboli_gao = result.fanchuangboli_gao.toFixed(3)
+  result.fanchuangboli_kuan1 = result.fanchuangboli_kuan1.toFixed(3)
+  result.fanchuangboli_kuan2 = result.fanchuangboli_kuan2.toFixed(3)
+
   return result
 }
 

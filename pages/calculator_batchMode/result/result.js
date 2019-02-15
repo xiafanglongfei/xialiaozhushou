@@ -12,19 +12,18 @@ Page({
     items: [],
     results: [],
 
-    array_material: [
-      {
+    array_material: [{
         name: "玻璃0",
         // name_en: "boli",
         params: [
-          {
-            chicun: 1.28,
-            subtotal: 2
-          },
-          {
-            chicun: 1.883,
-            subtotal: 5
-          }
+          // {
+          //   chicun: 1.28,
+          //   subtotal: 2
+          // },
+          // {
+          //   chicun: 1.883,
+          //   subtotal: 5
+          // }
         ],
       },
       {
@@ -107,75 +106,67 @@ Page({
     var items = this.data.items
     var results = this.data.results
     var array_material = this.data.array_material
+    // var array_material = new Array()
+
     var i = 0
 
     for (i = 0; i < results.length; i++) {
-      var param = new Object()
       if (items[i].hasPF) {
-        param.subtotal = items[i].subtotal
-
-        // 扁管
-        param.chicun = results[i].bianguan
-        console.log("扁管param字段", param)
-        array_material[2].params.push(param)
-        console.log("扁管params字段", array_material[2].params)
-        console.log("array_material字段", array_material)
-
-
-        // 吊线
-        param.chicun = results[i].diaoxian
-        param.subtotal = (items[i].PFC - 1) * items[i].subtotal
-        array_material[1].params.push(param)
-        console.log("array_material字段", array_material)
-
+        
         // 翻窗玻璃（+3mm）
-        param.chicun = results[i].fanchuangboli_gao.toString() + "*" + results[i].fanchuangboli_kuan1.toString()
-        param.subtotal = items[i].subtotal * ((items[i].PFC == 2) ? 1 : 2)
-        console.log("翻窗玻璃+3param字段", param)
-        array_material[0].params.push(param)
-        console.log("翻窗玻璃+3params字段", array_material[0].params)
-        console.log("array_material字段", array_material)
+        var param0 = new Object()
+        param0.chicun = results[i].fanchuangboli_gao.toString() + "*" + results[i].fanchuangboli_kuan1.toString()
+        param0.subtotal = items[i].subtotal * ((items[i].PFC == 2) ? 1 : 2)
+        array_material[0].params.push(param0)
 
         // 翻窗玻璃（-2mm）
-        param.chicun = results[i].fanchuangboli_gao.toString() + "*" + results[i].fanchuangboli_kuan2.toString()
-        param.subtotal = items[i].subtotal * ((items[i].PFC == 4) ? 2 : 1)
-        console.log("翻窗玻璃-2mm", param)
-        array_material[0].params.push(param)
-        console.log("array_material字段", array_material)
+        var param0 = new Object()
+        param0.chicun = results[i].fanchuangboli_gao.toString() + "*" + results[i].fanchuangboli_kuan2.toString()
+        param0.subtotal = items[i].subtotal * ((items[i].PFC == 4) ? 2 : 1)
+        array_material[0].params.push(param0)
 
         // 扇子玻璃
-        param.chicun = results[i].shanziboli_gao.toString() + "*" + results[i].shanziboli_kuan.toString()
-        param.subtotal = items[i].subtotal * items[i].WC
-        array_material[0].params.push(param)
-        console.log("array_material字段", array_material)
+        var param0 = new Object()
+        param0.chicun = results[i].shanziboli_gao.toString() + "*" + results[i].shanziboli_kuan.toString()
+        param0.subtotal = items[i].subtotal * items[i].WC
+        array_material[0].params.push(param0)
 
+        // 吊线
+        var param1 = new Object()
+        param1.chicun = results[i].diaoxian
+        param1.subtotal = (items[i].PFC - 1) * items[i].subtotal
+        array_material[1].params.push(param1)
+
+        // 扁管
+        var param2 = new Object()
+        param2.chicun = results[i].bianguan
+        param2.subtotal = items[i].subtotal
+        array_material[2].params.push(param2)
       }
 
       // bianfeng
-      param.chicun = results[i].bianfeng
-      param.subtotal = 2 * items[i].subtotal
-      array_material[3].params.push(param)
-      console.log("array_material字段", array_material)
+      var param3 = new Object()
+      param3.chicun = results[i].bianfeng
+      param3.subtotal = 2 * items[i].subtotal
+      array_material[3].params.push(param3)
 
       //shanghua
-      param.chicun = results[i].shangxiahua
-      param.subtotal = items[i].subtotal
-      array_material[4].params.push(param)
-      console.log("array_material字段", array_material)
+      var param4 = new Object()
+      param4.chicun = results[i].shangxiahua
+      param4.subtotal = items[i].subtotal
+      array_material[4].params.push(param4)
 
       //gouji
-      param.chicun = results[i].gouguangji
-      param.subtotal = items[i].WC * items[i].subtotal
-      array_material[5].params.push(param)
-      console.log("array_material字段", array_material)
+      var param5 = new Object()
+      param5.chicun = results[i].gouguangji
+      param5.subtotal = items[i].WC * items[i].subtotal
+      array_material[5].params.push(param5)
 
       //shangfang
-      param.chicun = results[i].shangxiafang
-      param.subtotal = items[i].WC * items[i].subtotal
-      array_material[6].params.push(param)
-      console.log("array_material字段", array_material)
-
-
+      var param6 = new Object()
+      param6.chicun = results[i].shangxiafang
+      param6.subtotal = items[i].WC * items[i].subtotal
+      array_material[6].params.push(param6)
     }
 
     this.setData({

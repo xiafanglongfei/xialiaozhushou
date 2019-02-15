@@ -17,6 +17,7 @@ Page({
       hasPF: true,
       PFC: 2,
       WC: 2,
+      checked: true,
     },
   },
 
@@ -42,9 +43,22 @@ Page({
     var s = this.data.s
     s++
 
+    var options = {
+      raw_height: "",
+      raw_width: "",
+      shanzi_height: 1.175,
+      hasPF: true,
+      PFC: 2,
+      WC: 2,
+      checked: true,
+    }
+
     this.setData({
       items: items,
       s: s,
+
+      // 参数重置
+      options: options,
     })
 
   },
