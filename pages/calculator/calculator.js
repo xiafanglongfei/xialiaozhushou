@@ -23,21 +23,6 @@ Page({
       WC: 2,
     },
 
-    // fanchuangboli_gao: undefined,
-    // fanchuangboli_kuan1: undefined,
-    // fanchuangboli_kuan2: undefined,
-
-    // shanziboli_gao: undefined,
-    // shanziboli_kuan: undefined,
-
-    // bianfeng: undefined,
-    // diaoxian: undefined,
-    // bianguan: undefined,
-    // shangxiahua: undefined,
-
-    // gouguangji: undefined,
-    // shangxiafang: undefined,
-
   },
 
   onLoad: function(options) {

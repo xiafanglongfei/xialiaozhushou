@@ -32,7 +32,7 @@ Page({
     item.raw_width = parseFloat(e.detail.value.raw_width)
     item.hasPF = e.detail.value.hasPF
     item.PFC = e.detail.value.PFC
-    item.shanzi_height = e.detail.value.shanzi_height
+    item.shanzi_height = parseFloat(e.detail.value.shanzi_height)
     item.WC = e.detail.value.WC
     item.subtotal = e.detail.value.subtotal
 

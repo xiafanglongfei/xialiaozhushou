@@ -12,9 +12,10 @@ Page({
     items: [],
     results: [],
 
-    array_material: [{
+    array_material: [
+      {
         name: "玻璃0",
-        name_en: "boli",
+        // name_en: "boli",
         params: [
           {
             chicun: 1.28,
@@ -27,52 +28,51 @@ Page({
         ],
       },
       {
-        diaoxian: [],
         name: "吊线1",
-        name_en: "boli",
+        // name_en: "boli",
         params: [],
       },
       {
         name: "扁管2",
-        name_en: "boli",
+        // name_en: "boli",
         params: [],
       },
       {
         name: "边封3",
-        name_en: "boli",
+        // name_en: "boli",
         params: [],
       },
       {
         name: "上滑4",
-        name_en: "boli",
+        // name_en: "boli",
         params: [],
       },
       {
         name: "钩极5",
-        name_en: "boli",
+        // name_en: "boli",
         params: [],
       },
       {
         name: "上方6",
-        name_en: "boli",
+        // name_en: "boli",
         params: [],
       },
 
-      {
-        name: "下滑",
-        name_en: "boli",
-        params: [],
-      },
-      {
-        name: "光极",
-        name_en: "boli",
-        params: [],
-      },
-      {
-        name: "下方",
-        name_en: "boli",
-        params: [],
-      },
+      // {
+      //   name: "下滑",
+      //   // name_en: "boli",
+      //   params: [],
+      // },
+      // {
+      //   name: "光极",
+      //   // name_en: "boli",
+      //   params: [],
+      // },
+      // {
+      //   name: "下方",
+      //   // name_en: "boli",
+      //   params: [],
+      // },
 
     ],
 
@@ -119,13 +119,35 @@ Page({
         console.log("扁管param字段", param)
         array_material[2].params.push(param)
         console.log("扁管params字段", array_material[2].params)
+        console.log("array_material字段", array_material)
+
 
         // 吊线
         param.chicun = results[i].diaoxian
         param.subtotal = (items[i].PFC - 1) * items[i].subtotal
         array_material[1].params.push(param)
+        console.log("array_material字段", array_material)
 
-        //玻璃
+        // 翻窗玻璃（+3mm）
+        param.chicun = results[i].fanchuangboli_gao.toString() + "*" + results[i].fanchuangboli_kuan1.toString()
+        param.subtotal = items[i].subtotal * ((items[i].PFC == 2) ? 1 : 2)
+        console.log("翻窗玻璃+3param字段", param)
+        array_material[0].params.push(param)
+        console.log("翻窗玻璃+3params字段", array_material[0].params)
+        console.log("array_material字段", array_material)
+
+        // 翻窗玻璃（-2mm）
+        param.chicun = results[i].fanchuangboli_gao.toString() + "*" + results[i].fanchuangboli_kuan2.toString()
+        param.subtotal = items[i].subtotal * ((items[i].PFC == 4) ? 2 : 1)
+        console.log("翻窗玻璃-2mm", param)
+        array_material[0].params.push(param)
+        console.log("array_material字段", array_material)
+
+        // 扇子玻璃
+        param.chicun = results[i].shanziboli_gao.toString() + "*" + results[i].shanziboli_kuan.toString()
+        param.subtotal = items[i].subtotal * items[i].WC
+        array_material[0].params.push(param)
+        console.log("array_material字段", array_material)
 
       }
 
@@ -133,21 +155,25 @@ Page({
       param.chicun = results[i].bianfeng
       param.subtotal = 2 * items[i].subtotal
       array_material[3].params.push(param)
+      console.log("array_material字段", array_material)
 
       //shanghua
       param.chicun = results[i].shangxiahua
       param.subtotal = items[i].subtotal
       array_material[4].params.push(param)
+      console.log("array_material字段", array_material)
 
       //gouji
       param.chicun = results[i].gouguangji
       param.subtotal = items[i].WC * items[i].subtotal
       array_material[5].params.push(param)
+      console.log("array_material字段", array_material)
 
       //shangfang
       param.chicun = results[i].shangxiafang
       param.subtotal = items[i].WC * items[i].subtotal
       array_material[6].params.push(param)
+      console.log("array_material字段", array_material)
 
 
     }
