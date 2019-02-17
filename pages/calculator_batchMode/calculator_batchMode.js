@@ -17,6 +17,7 @@ Page({
       hasPF: true,
       PFC: 2,
       WC: 2,
+      checked: true,
     },
   },
 
@@ -32,7 +33,7 @@ Page({
     item.raw_width = parseFloat(e.detail.value.raw_width)
     item.hasPF = e.detail.value.hasPF
     item.PFC = e.detail.value.PFC
-    item.shanzi_height = e.detail.value.shanzi_height
+    item.shanzi_height = parseFloat(e.detail.value.shanzi_height)
     item.WC = e.detail.value.WC
     item.subtotal = e.detail.value.subtotal
 
@@ -42,9 +43,22 @@ Page({
     var s = this.data.s
     s++
 
+    var options = {
+      raw_height: "",
+      raw_width: "",
+      shanzi_height: 1.175,
+      hasPF: true,
+      PFC: 2,
+      WC: 2,
+      checked: true,
+    }
+
     this.setData({
       items: items,
       s: s,
+
+      // 参数重置
+      options: options,
     })
 
   },

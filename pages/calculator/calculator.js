@@ -23,21 +23,6 @@ Page({
       WC: 2,
     },
 
-    // fanchuangboli_gao: undefined,
-    // fanchuangboli_kuan1: undefined,
-    // fanchuangboli_kuan2: undefined,
-
-    // shanziboli_gao: undefined,
-    // shanziboli_kuan: undefined,
-
-    // bianfeng: undefined,
-    // diaoxian: undefined,
-    // bianguan: undefined,
-    // shangxiahua: undefined,
-
-    // gouguangji: undefined,
-    // shangxiafang: undefined,
-
   },
 
   onLoad: function(options) {
@@ -106,6 +91,18 @@ Page({
     // 翻窗玻璃实际宽度为平均宽度加3毫米或者减2毫米
     results.fanchuangboli_kuan1 = fanchuangboli_kuan + 0.003
     results.fanchuangboli_kuan2 = fanchuangboli_kuan - 0.002
+
+    results.bianfeng = results.bianfeng.toFixed(3)
+    results.shangxiahua = results.shangxiahua.toFixed(3)
+    results.bianguan = results.bianguan.toFixed(3)
+    results.gouguangji = results.gouguangji.toFixed(3)
+    results.shangxiafang = results.shangxiafang.toFixed(3)
+    results.shanziboli_gao = results.shanziboli_gao.toFixed(3)
+    results.shanziboli_kuan = results.shanziboli_kuan.toFixed(3)
+    results.diaoxian = results.diaoxian.toFixed(3)
+    results.fanchuangboli_gao = results.fanchuangboli_gao.toFixed(3)
+    results.fanchuangboli_kuan1 = results.fanchuangboli_kuan1.toFixed(3)
+    results.fanchuangboli_kuan2 = results.fanchuangboli_kuan2.toFixed(3)
 
     app.globalData.results = results
     options.shanzi_height = results.gouguangji
