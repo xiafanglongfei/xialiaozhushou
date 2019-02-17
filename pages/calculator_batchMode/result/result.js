@@ -12,8 +12,10 @@ Page({
     items: [],
     results: [],
 
-    array_material: [{
-        name: "玻璃0",
+    array_material: [
+      // 0
+      {
+        name: "玻璃（高*宽*块数）",
         // name_en: "boli",
         params: [
           // {
@@ -26,34 +28,34 @@ Page({
           // }
         ],
       },
+      // 1
       {
-        name: "吊线1",
-        // name_en: "boli",
+        name: "吊线（长度*根数）",
         params: [],
       },
+      // 2
       {
-        name: "扁管2",
-        // name_en: "boli",
+        name: "扁管（长度*根数）",
         params: [],
       },
+      // 3
       {
-        name: "边封3",
-        // name_en: "boli",
+        name: "边封（长度*根数）",
         params: [],
       },
+      // 4
       {
-        name: "上滑4",
-        // name_en: "boli",
+        name: "上下滑（长度*套数）",
         params: [],
       },
+      // 5
       {
-        name: "钩极5",
-        // name_en: "boli",
+        name: "钩光极（长度*套数）",
         params: [],
       },
+      // 6
       {
-        name: "上方6",
-        // name_en: "boli",
+        name: "上下方（长度*根数）",
         params: [],
       },
 
