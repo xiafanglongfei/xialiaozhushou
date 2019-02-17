@@ -1,7 +1,7 @@
 <!--pages/calculator/result/result.wxml-->
 
 <!-- 必须使用相对路径 -->
-<wxs module="filters" src="../../../utils/filters.wxs"></wxs>
+<!-- <wxs module="filters" src="../../../utils/filters.wxs"></wxs> -->
 
 <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
 
@@ -29,7 +29,8 @@
             <view class="weui-label">翻窗玻璃——高</view>
           </view>
           <view class="weui-cell__bd">
-            <text class="weui-input">{{filters.toFix(results.fanchuangboli_gao)}}</text>
+            <!-- <text class="weui-input">{{filters.toFix(results.fanchuangboli_gao)}}</text> -->
+            <text class="weui-input">{{results.fanchuangboli_gao}}</text>
           </view>
         </view>
 
@@ -38,7 +39,7 @@
             <view class="weui-label">翻窗玻璃1——宽</view>
           </view>
           <view class="weui-cell__bd">
-            <text class="weui-input">{{filters.toFix(results.fanchuangboli_kuan1)}}</text>
+            <text class="weui-input">{{results.fanchuangboli_kuan1}}</text>
           </view>
         </view>
 
@@ -47,9 +48,19 @@
             <view class="weui-label">翻窗玻璃2——宽</view>
           </view>
           <view class="weui-cell__bd">
-            <text class="weui-input">{{filters.toFix(results.fanchuangboli_kuan2)}}</text>
+            <text class="weui-input">{{results.fanchuangboli_kuan2}}</text>
           </view>
         </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">吊线</view>
+          </view>
+          <view class="weui-cell__bd">
+            <text class="weui-input">{{results.diaoxian}}</text>
+          </view>
+        </view>
+
       </block>
 
       <view class="weui-cell weui-cell_input">
@@ -57,7 +68,7 @@
           <view class="weui-label">扇子玻璃——高</view>
         </view>
         <view class="weui-cell__bd">
-          <text class="weui-input">{{filters.toFix(results.shanziboli_gao)}}</text>
+          <text class="weui-input">{{results.shanziboli_gao}}</text>
         </view>
       </view>
 
@@ -66,7 +77,7 @@
           <view class="weui-label">扇子玻璃——宽</view>
         </view>
         <view class="weui-cell__bd">
-          <text class="weui-input">{{filters.toFix(results.shanziboli_kuan)}}</text>
+          <text class="weui-input">{{results.shanziboli_kuan}}</text>
         </view>
       </view>
 
@@ -75,7 +86,7 @@
           <view class="weui-label">边封</view>
         </view>
         <view class="weui-cell__bd">
-          <text class="weui-input">{{filters.toFix(results.bianfeng)}}</text>
+          <text class="weui-input">{{results.bianfeng}}</text>
         </view>
       </view>
 
@@ -84,7 +95,7 @@
           <view class="weui-label">扁管</view>
         </view>
         <view class="weui-cell__bd">
-          <text class="weui-input">{{filters.toFix(results.bianguan)}}</text>
+          <text class="weui-input">{{results.bianguan}}</text>
         </view>
       </view>
 
@@ -93,7 +104,7 @@
           <view class="weui-label">上下滑</view>
         </view>
         <view class="weui-cell__bd">
-          <text class="weui-input">{{filters.toFix(results.shangxiahua)}}</text>
+          <text class="weui-input">{{results.shangxiahua}}</text>
         </view>
       </view>
 
@@ -102,7 +113,7 @@
           <view class="weui-label">钩光极</view>
         </view>
         <view class="weui-cell__bd">
-          <text class="weui-input">{{filters.toFix(results.gouguangji)}}</text>
+          <text class="weui-input">{{results.gouguangji}}</text>
         </view>
       </view>
 
@@ -111,7 +122,7 @@
           <view class="weui-label">上下方</view>
         </view>
         <view class="weui-cell__bd">
-          <text class="weui-input">{{filters.toFix(results.shangxiafang)}}</text>
+          <text class="weui-input">{{results.shangxiafang}}</text>
         </view>
       </view>
 

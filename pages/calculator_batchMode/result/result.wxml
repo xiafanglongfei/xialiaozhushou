@@ -1,0 +1,44 @@
+<!--pages/calculator_batchMode/result/result.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <!-- 选项一的内容 -->
+          <view class="" wx:for="{{array_material}}" wx:key="">
+
+            <view class="weui-cells__title">{{item.name}}</view>
+            <view class="weui-cells weui-cells_after-title">
+
+              <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{item.params}}" wx:for-item="i" wx:key="">
+                <view class="weui-cell__bd">{{i.chicun}}*{{i.subtotal}}</view>
+                <!-- <view class="weui-cell__ft weui-cell__ft_in-access">查看</view> -->
+              </navigator>
+
+            </view>
+
+          </view>
+        </view>
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          选项二的内容
+        </view>
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          选项三的内容
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>

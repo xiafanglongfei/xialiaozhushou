@@ -37,12 +37,27 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "list页面",
 					"pathName": "pages/series/list/list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "批量模式",
+					"pathName": "pages/calculator_batchMode/calculator_batchMode",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "批量模式结果页面",
+					"pathName": "pages/calculator_batchMode/result/result",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -46,6 +46,7 @@ App({
 
       // bianfeng: undefined,
       // bianguan: undefined,
+      // diaoxian: undefined,
       // shangxiahua: undefined,
 
       // gouguangji: undefined,
@@ -61,35 +62,39 @@ App({
       // WC: undefined,
     },
 
-    series: [{
-        name: "默认",
-        shanzi_height: 1.175,
-        hasPF: true,
-        PFC: 2,
-        WC: 2,
-        bianguan_h: 1,
-        bianfeng_h_d: 1,
-        bianfeng_h_x: 1,
-        shangxiahua_h: 1,
-        diaoxian_h: 1,
-        shangxiafang_h: 1,
-        gouguangji_h: 1
-      },
-      {
-        name: "系列2",
-        shanzi_height: 1.175,
-        hasPF: true,
-        PFC: 2,
-        WC: 2,
-        bianguan_h: 1,
-        bianfeng_h_d: 1,
-        bianfeng_h_x: 1,
-        shangxiahua_h: 1,
-        diaoxian_h: 1,
-        shangxiafang_h: 1,
-        gouguangji_h: 1
-      }
-    ],
+    // series: [{
+    //     name: "默认",
+    //     shanzi_height: 1.175,
+    //     hasPF: true,
+    //     PFC: 2,
+    //     WC: 2,
+    //     bianguan_h: 1,
+    //     bianfeng_h_d: 1,
+    //     bianfeng_h_x: 1,
+    //     shangxiahua_h: 1,
+    //     diaoxian_h: 1,
+    //     shangxiafang_h: 1,
+    //     gouguangji_h: 1
+    //   },
+    //   {
+    //     name: "系列2",
+    //     shanzi_height: 1.175,
+    //     hasPF: true,
+    //     PFC: 2,
+    //     WC: 2,
+    //     bianguan_h: 1,
+    //     bianfeng_h_d: 1,
+    //     bianfeng_h_x: 1,
+    //     shangxiahua_h: 1,
+    //     diaoxian_h: 1,
+    //     shangxiafang_h: 1,
+    //     gouguangji_h: 1
+    //   }
+    // ],
     selected: 0,
+
+    items: [],
+
+
   }
 })

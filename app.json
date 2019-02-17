@@ -7,7 +7,9 @@
     "pages/series/add/add",
     "pages/series/edit/edit",
     "pages/calculator/result/result",
-    "pages/footer/footer"
+    "pages/footer/footer",
+    "pages/calculator_batchMode/calculator_batchMode",
+    "pages/calculator_batchMode/result/result"
   ],
   "window": {
     "backgroundTextStyle": "light",

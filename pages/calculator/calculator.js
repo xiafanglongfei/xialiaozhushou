@@ -14,61 +14,29 @@ Page({
       // 原始尺寸——宽
       raw_width: undefined,
       // 扇子高度
-      shanzi_height: undefined,
+      shanzi_height: 1.175,
       // 是否有翻窗
-      hasPF: undefined,
+      hasPF: true,
       // 翻窗数
-      PFC: undefined,
+      PFC: 2,
       // 扇子数
-      WC: undefined,
+      WC: 2,
     },
-
-    // fanchuangboli_gao: undefined,
-    // fanchuangboli_kuan1: undefined,
-    // fanchuangboli_kuan2: undefined,
-
-    // shanziboli_gao: undefined,
-    // shanziboli_kuan: undefined,
-
-    // bianfeng: undefined,
-    // bianguan: undefined,
-    // shangxiahua: undefined,
-
-    // gouguangji: undefined,
-    // shangxiafang: undefined,
-
-    radioPFCItems: [{
-        // name: '2',
-        name: '1',
-        value: 2,
-        checked: true
-      },
-      {
-        // name: '3',
-        name: '2',
-        value: 3,
-      },
-      {
-        // name: '4',
-        name: '3',
-        value: 4,
-      }
-    ],
 
   },
 
   onLoad: function(options) {
-    var options = new Object()
-    // console.log('app.globalData.series[0].hasPF值为', app.globalData.series[0].hasPF)
-    options.shanzi_height = app.globalData.series[0].shanzi_height
-    options.hasPF = app.globalData.series[0].hasPF
-    // console.log('hasPF值为', options.hasPF)
-    options.PFC = app.globalData.series[0].PFC
-    options.WC = app.globalData.series[0].WC
+    // var options = new Object()
+    // // console.log('app.globalData.series[0].hasPF值为', app.globalData.series[0].hasPF)
+    // options.shanzi_height = app.globalData.series[0].shanzi_height
+    // options.hasPF = app.globalData.series[0].hasPF
+    // // console.log('hasPF值为', options.hasPF)
+    // options.PFC = app.globalData.series[0].PFC
+    // options.WC = app.globalData.series[0].WC
 
-    this.setData({
-      options: options
-    })
+    // this.setData({
+    //   options: options
+    // })
   },
 
   formSubmit: function(e) {
@@ -113,31 +81,32 @@ Page({
     // 扇子玻璃宽度为扇子宽度（上下方长度）减去钩极和光极的厚度（默认为0.065米）
     results.shanziboli_kuan = results.shangxiafang - 0.065
 
-    // 翻窗玻璃高度为原始尺寸高度减去扇子部分高度和扁管厚度（一个，默认为0.025米），再减去预留空隙0.002米
+    // 吊线长度为原始尺寸高度减去扇子部分高度和扁管厚度（一个，默认为0.025米）
+    results.diaoxian = options.raw_height - (results.gouguangji + 0.065) - 0.025
+    // 翻窗玻璃高度为吊线长度减去预留空隙0.002米
     // 扇子部分分为扇子高度与上下方厚度（上下方总厚度默认为0.065米）
-    results.fanchuangboli_gao = options.raw_height - (results.gouguangji + 0.065) - 0.025 - 0.002
+    results.fanchuangboli_gao = results.diaoxian - 0.002
     // 翻窗玻璃平均宽度等于扁管长度减去吊线总厚度（吊线实际就是扁管，扁管厚度默认为0.025米），然后除以翻窗数PFC
     var fanchuangboli_kuan = (results.bianguan - 0.025 * (options.PFC - 1)) / options.PFC
     // 翻窗玻璃实际宽度为平均宽度加3毫米或者减2毫米
     results.fanchuangboli_kuan1 = fanchuangboli_kuan + 0.003
     results.fanchuangboli_kuan2 = fanchuangboli_kuan - 0.002
 
+    results.bianfeng = results.bianfeng.toFixed(3)
+    results.shangxiahua = results.shangxiahua.toFixed(3)
+    results.bianguan = results.bianguan.toFixed(3)
+    results.gouguangji = results.gouguangji.toFixed(3)
+    results.shangxiafang = results.shangxiafang.toFixed(3)
+    results.shanziboli_gao = results.shanziboli_gao.toFixed(3)
+    results.shanziboli_kuan = results.shanziboli_kuan.toFixed(3)
+    results.diaoxian = results.diaoxian.toFixed(3)
+    results.fanchuangboli_gao = results.fanchuangboli_gao.toFixed(3)
+    results.fanchuangboli_kuan1 = results.fanchuangboli_kuan1.toFixed(3)
+    results.fanchuangboli_kuan2 = results.fanchuangboli_kuan2.toFixed(3)
+
     app.globalData.results = results
     options.shanzi_height = results.gouguangji
     app.globalData.options = options
-    // app.globalData.results.fanchuangboli_gao = fanchuangboli_gao
-    // app.globalData.results.fanchuangboli_kuan1 = fanchuangboli_kuan1
-    // app.globalData.results.fanchuangboli_kuan2 = fanchuangboli_kuan2
-
-    // app.globalData.results.shanziboli_gao = shanziboli_gao
-    // app.globalData.results.shanziboli_kuan = shanziboli_kuan
-
-    // app.globalData.results.bianfeng = bianfeng
-    // app.globalData.results.bianguan = bianguan
-    // app.globalData.results.shangxiahua = shangxiahua
-
-    // app.globalData.results.gouguangji = gouguangji
-    // app.globalData.results.shangxiafang = shangxiafang
  
     console.log(app.globalData)
 
@@ -145,6 +114,12 @@ Page({
       url: '/pages/calculator/result/result',
     })
 
+  },
+
+  toBatchMode: function() {
+    wx.navigateTo({
+      url: '/pages/calculator_batchMode/calculator_batchMode',
+    })
   },
 
   toSeriesList: function() {
