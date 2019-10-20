@@ -1,8 +1,9 @@
 <!--pages/footer/footer.wxml-->
 <template name="footer">
-  <view class="weui-footer">
+  <!-- <view class="weui-footer"> -->
+  <view class="weui-footer" style="padding-bottom: .52em;">   <!-- 此处pading-bottom属性换成margin-bottom，则在iOS端不会生效 -->
     <view class="weui-footer__links">
-      <navigator url="" class="weui-footer__link">夏龙飞制作</navigator>
+      <navigator url="" class="weui-footer__link">小夏出品</navigator>
     </view>
     <!-- <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view> -->
     <view class="weui-footer__text">2019年2月7日于罗田</view>
